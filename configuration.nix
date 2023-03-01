@@ -65,13 +65,16 @@
 	];
       };
   };
+
   # Necessary to allow GNOME theming with home-manager.
   programs.dconf.enable = true;
+
   # Enable Sway
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
   };
+
   # Enable Waybar. Tray only works if enabled here.
   # programs.waybar.enable = true;
 
@@ -108,7 +111,7 @@
   users.users.samuka = {
     isNormalUser = true;
     description = "Samuel";
-    extraGroups = [ "networkmanager" "wheel" "audio" "video" ];
+    extraGroups = [ "networkmanager" "wheel" "audio" "video" "wwwrun" ];
   };
 
   # Allow unfree packages
@@ -140,7 +143,7 @@
 
     gcc gdb ccls
     rustc rustfmt cargo rust-analyzer
-    nodejs
+    nodejs php
     ruby_3_1 rubyPackages_3_1.solargraph
     ocaml opam
     elixir elixir_ls erlang erlang-ls
@@ -153,6 +156,22 @@
   services.flatpak.enable = true;
 
   hardware.opengl.driSupport32Bit = true;
+
+  services.httpd = {
+    enable = true;
+    enablePHP = true;
+    adminAddr = "localhost";
+
+    virtualHosts."localhost" = {
+      documentRoot = "/var/www";
+      enableSSL = false;
+    };
+  };
+
+  services.mysql = {
+    enable = true;
+    package = pkgs.mariadb;
+  };
 
   fonts.fonts = with pkgs; [
     noto-fonts
