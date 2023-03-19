@@ -130,7 +130,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim neovim
-    zathura
+    zathura bottles
     vlc vscode gnumake unzip unrar p7zip
     transmission-gtk libreoffice 
     racket mitscheme
@@ -145,7 +145,9 @@
     rustc rustfmt cargo rust-analyzer
     nodejs php
     ruby_3_1 rubyPackages_3_1.solargraph
-    ocaml opam
+    ocaml opam dune_3 ocamlPackages.utop ocamlPackages.odoc ocamlPackages.ounit2
+    ocamlPackages.qcheck ocamlPackages.bisect_ppx ocamlPackages.menhir ocamlPackages.lsp
+    ocamlformat ocamlPackages.ocamlformat-rpc-lib
     elixir elixir_ls erlang erlang-ls
     jdk clojure clojure-lsp boot
     ghc haskell-language-server cabal-install
