@@ -11,9 +11,10 @@ in {
   home.packages = with pkgs; [
     swaylock swayidle wofi playerctl
     sway-contrib.grimshot
-    # wdisplays kanshi mako clipman 
+    wdisplays kanshi mako clipman 
     brightnessctl blueberry 
     pavucontrol pulseaudio # sound control (pulseaudio = pactl)
+    networkmanagerapplet
   ];
   wayland.windowManager.sway = {
     enable = true;
@@ -54,6 +55,11 @@ in {
         };
       };
 
+      startup = [
+        { command = "nm-applet"; }
+        { command = "blueberry-tray"; }
+      ];
+
       terminal = "${pkgs.kitty}/bin/kitty";
 
       window.hideEdgeBorders = "smart";
@@ -61,5 +67,6 @@ in {
 
     wrapperFeatures.gtk = true;
 
-  };
+   };
+
 }

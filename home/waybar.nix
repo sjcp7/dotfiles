@@ -7,7 +7,9 @@
     enable = true;
     settings = {
       mainBar = {
-        height = 30;
+        height = 25;
+        spacing = 10;
+        position = "bottom";
         modules-left = [ "sway/workspaces" "sway/mode" ];
         modules-center = [ "sway/window" ];
         modules-right = [ "pulseaudio" "backlight" "clock" "tray" ];
@@ -20,8 +22,13 @@
 	  max-length = 50;
 	};
 
+        "pulseaudio" = {
+          format = "{icon} {volume}%";
+          format-icons = [ "" ];
+        };
+
         "tray" = {
-          icon-size = 21;
+          icon-size = 15;
           spacing = 10;
         };
       };
@@ -34,8 +41,8 @@
        * {
          border: none;
 	 border-radius: 0;
-	 font-family: Iosevka;
-	 margin: 0 2px;
+	 font-family: "Iosevka Nerd Font", "Inter";
+         font-size: 12pt;
        }
 
        window#waybar {
