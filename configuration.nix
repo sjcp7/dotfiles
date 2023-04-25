@@ -30,7 +30,7 @@
   time.timeZone = "Africa/Luanda";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.utf8";
+  i18n.defaultLocale = "en_GB.utf8";
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "pt_PT.UTF-8";
@@ -129,7 +129,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim neovim
+    vim neovim git
     zathura bottles
     vlc vscode gnumake unzip unrar p7zip
     transmission-gtk libreoffice 
@@ -141,9 +141,9 @@
     busybox
     pcmanfm jmtpfs # mount android devices
 
-    gcc gdb ccls
+    gcc gdb ccls mars-mips
     rustc rustfmt cargo rust-analyzer
-    nodejs php
+    nodejs postman mongodb-compass php
     ruby_3_1 rubyPackages_3_1.solargraph
     ocaml opam dune_3 ocamlPackages.utop ocamlPackages.odoc ocamlPackages.ounit2
     ocamlPackages.qcheck ocamlPackages.bisect_ppx ocamlPackages.menhir ocamlPackages.lsp
@@ -174,6 +174,8 @@
     enable = true;
     package = pkgs.mariadb;
   };
+
+  services.mongodb.enable = true;
 
   fonts.fonts = with pkgs; [
     noto-fonts

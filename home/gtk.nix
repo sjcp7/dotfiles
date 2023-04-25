@@ -3,13 +3,11 @@
   gtk = {
     enable = true;
     theme = {
-      package = pkgs.nordic;
-      name = "Nordic-bluish-accent";
+      name = "Adwaita";
     };
 
     iconTheme = {
-      package = pkgs.zafiro-icons;
-      name = "Zafiro-icons";
+      name = "Adwaita";
     };
 
     cursorTheme = {
